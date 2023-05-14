@@ -1,4 +1,4 @@
-package clupenguin;
+package unbosque.edu.co.model;
 
 public class mazo {
 	String[] mazo = new String[30];

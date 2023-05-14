@@ -1,4 +1,4 @@
-package clupenguin;
+package unbosque.edu.co.model;
 
 public class inventario {
 	String skin = new String();
