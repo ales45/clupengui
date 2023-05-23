@@ -19,5 +19,25 @@ public class Carta {
 		
 	}
 	
+	public String getnombre() {
+		return this.nombre;
+	}
+	
+	public int getid() {
+		return this.id;
+	}
+	
+	public String getcolor() {
+		return this.color;
+	}
+	
+	public String getelemento() {
+		return this.elemento;
+	}
+	
+	public int getnumero() {
+		return this.numero;
+	}
+	
 	
 }

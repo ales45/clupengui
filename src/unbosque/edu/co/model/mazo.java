@@ -1,34 +1,50 @@
 package unbosque.edu.co.model;
 
+
 public class mazo {
-	String[] mazo = new String[30];
-	String[] mazoganador = new String[30];
-	String[] mazopinguino = new String[5];
+	Carta[] mazo = new Carta[30];
+	Carta[] mazoganador = new Carta[30];
+	Carta[] mazoganadorsen = new Carta[30];
+
+	Carta[] mazopinguino = new Carta[5];
 	
 	public mazo() {
 		
 	}
 	
-	public void setmazo(int i,String carta) {
+	public void setmazo(int i,Carta carta) {
 		this.mazo[i] = carta; 
 	}
-	public String getmazo(int i) {
+	public Carta getmazo(int i) {
 		return this.mazo[i];
 	}
 	
-	public void setmazoganador(int i,String carta) {
-		this.mazo[i] = carta; 
+	public void setmazoganador(int i,Carta carta) {
+		this.mazoganador[i] = carta; 
 	}
-	public String getmazoganador(int i) {
+	public Carta getmazoganador(int i) {
 		return this.mazoganador[i];
 	}
 	
-	public void setmazopingino(int i,String carta) {
+	public void setmazoganadorsen(int i,Carta carta) {
 		this.mazoganador[i] = carta; 
 	}
-	public String getmazopingino(int i) {
+	public Carta getmazoganadorsen(int i) {
+		return this.mazoganador[i];
+	}
+	
+	
+	
+	public void setmazopingino(int i,Carta carta) {
+		this.mazopinguino[i] = carta; 
+	}
+	public Carta getmazopingino(int i) {
 		return this.mazopinguino[i];
 	}
+	/*public Carta[] getmazoganador() {
+		return mazoganador;
+	}*/
+
 	
 	
 }
