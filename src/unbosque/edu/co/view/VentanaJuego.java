@@ -2,7 +2,7 @@ package unbosque.edu.co.view;
 
 import java.awt.BorderLayout;
 import java.awt.Image;
-
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -19,6 +19,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
+import unbosque.edu.co.model.Carta;
+
 public class VentanaJuego extends JFrame {
 
 
@@ -30,13 +32,12 @@ public class VentanaJuego extends JFrame {
 	public JLabel gifLabel1;
     public JLabel gifLabel2;
 	
-	public VentanaJuego() {
+	public VentanaJuego(List<Carta> carta) {
 		setBounds(0, 0, 960, 640);
 		setResizable(false);
 		setTitle("CardJistsu");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-
 		ImageIcon imagenIcon = new ImageIcon("src/unbosque/edu/co/imagenes/fondo_para_menu_-_copia.png");
         Image imagen = imagenIcon.getImage();
         Image imagenRedimensionada = imagen.getScaledInstance(960, 640, Image.SCALE_SMOOTH);
@@ -47,26 +48,36 @@ public class VentanaJuego extends JFrame {
         background.setLayout(null);
 		
 		carta1 = new JButton("carta1");
+		ImageIcon imagenIconb1 = new ImageIcon(carta.get(0).getRutaCarta());
+		carta1.setIcon(imagenIconb1);
 		carta1.setBounds(20, 430, 100, 150);
 		carta1.setBackground(Color.BLACK);
 		carta1.setForeground(Color.WHITE);
 		
 		carta2 = new JButton("carta2");
+		ImageIcon imagenIconb2 = new ImageIcon(carta.get(1).getRutaCarta());
+		carta2.setIcon(imagenIconb2);
 		carta2.setBounds(120, 430, 100, 150);
 		carta2.setBackground(Color.BLACK);
 		carta2.setForeground(Color.WHITE);
 		
 		carta3 = new JButton("carta3");
+		ImageIcon imagenIconb3 = new ImageIcon(carta.get(2).getRutaCarta());
+		carta3.setIcon(imagenIconb3);
 		carta3.setBounds(220, 430, 100, 150);
 		carta3.setBackground(Color.BLACK);
 		carta3.setForeground(Color.WHITE);
 		
 		carta4 = new JButton("carta4");
+		ImageIcon imagenIconb4 = new ImageIcon(carta.get(3).getRutaCarta());
+		carta4.setIcon(imagenIconb4);
 		carta4.setBounds(320, 430, 100, 150);
 		carta4.setBackground(Color.BLACK);
 		carta4.setForeground(Color.WHITE);
 		
 		carta5 = new JButton("carta5");
+		ImageIcon imagenIconb5 = new ImageIcon(carta.get(4).getRutaCarta());
+		carta5.setIcon(imagenIconb5);
 		carta5.setBounds(420, 430, 100, 150);
 		carta5.setBackground(Color.BLACK);
 		carta5.setForeground(Color.WHITE);

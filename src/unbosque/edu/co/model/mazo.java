@@ -3,12 +3,12 @@ import unbosque.edu.co.model.Carta;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
+import java.util.*;
 public class mazo {
 	//Carta[] mazo = new Carta[30];
 	Carta[] mazoganador = new Carta[30];
 	Carta[] mazoganadorsen = new Carta[30];
-	private List<Carta> cartas;
+	public List<Carta> cartas = new ArrayList<>();
 	//Carta[] mazopinguino = new Carta[5];
 	
 
@@ -24,6 +24,7 @@ public class mazo {
 	public Carta[] getmazoganador() {
 		return this.mazoganador;
 	}
+
 	
 	
 	public void setmazoganadorsen(int i,Carta carta) {
@@ -37,13 +38,7 @@ public class mazo {
 	}
 	
 	
-	/*public Carta[] getmazoganador() {
-		return mazoganador;
-	}*/
-	
-	public void Inicializar() {
-        cartas.clear();
-      
+	public void Inicializar() {    
         cartas.add(new Carta(2, "amarillo","agua","src/unbosque/edu/co/imagenes/Cartas/CartasDeAguaAmarillos/agua2ama.png"));
         cartas.add(new Carta(3, "amarillo","agua","src/unbosque/edu/co/imagenes/Cartas/CartasDeAguaAmarillos/agua3ama.png"));
         cartas.add(new Carta(4, "amarillo","agua","src/unbosque/edu/co/imagenes/Cartas/CartasDeAguaAmarillos/agua4ama.png"));

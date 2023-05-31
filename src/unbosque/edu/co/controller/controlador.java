@@ -33,15 +33,19 @@ public class controlador implements ActionListener{
 	
 	
 	public controlador() {
+		mazos.Inicializar();
+	    mazos.shuffle();
+	    pengi.inicializar(mazos);
+	    pengi.llenarmano();
 		vi = new VentanaInicio();
-		vj = new VentanaJuego();
+		vj = new VentanaJuego(pengi.getMano());
 		vis = new VentanaInstrucciones();
 		agregarLectores();
 		cardButtons = new ArrayList<>();
 	}
 	
 	public void ejecutar2() {
-		
+
 		vi.setVisible(true);
 		
 		
@@ -63,7 +67,7 @@ public class controlador implements ActionListener{
 					System.out.println("sense");
 					mazos.setmazoganadorsen(ronda,(Carta) (cartas.get(0))); //aqui llamo a un metodo de otro archivo donde se esta gestionando que carta gana en cada ronda
 				}else {
-					continue;
+					
 				}
 			}		
 			
@@ -74,14 +78,14 @@ public class controlador implements ActionListener{
 			if (gn.Ganar(mazos.getmazoganador())) {
 				System.out.println("gana jugador");
 				pengi.aumentarScore(5);
-				break;
+				
 			}else {
 				if(gn.Ganar(mazos.getmazosense())) {
 					System.out.println("gana sense");
 					pengi.quitarScore(2);
-					break;
+				
 				}else {
-					continue;
+				
 				}
 			}
 			
@@ -132,17 +136,10 @@ public class controlador implements ActionListener{
 			 
 			 case "btnJugarClick": {
 	             abrirVentanaJugar();
-	             mazos.Inicializar();
-	             mazos.shuffle();
-	             pengi.inicializar(mazos);
-	             pengi.llenarmano();
-	             
-	             
-	             
-
 	             break;
 			 }
 			 case "btnInstrucClick": {
+
 				 abrirVentanaInstrucciones();
 				 
 				 break;
@@ -152,9 +149,7 @@ public class controlador implements ActionListener{
 				 break;
 			 }
 			 case "btncarta1clik": {
-				 //empezar(getmano(1),robot());
-				 //los botnes ejecutan la logica de cada ronda cuando se selecciona la carta
-				 //despues se tiene que llenar nuevamente l	a mano
+				 empezar(pengi.getMano().get(0), null);
 				 break;
 			 }
 			 case "btncarta2clik": {
@@ -187,7 +182,6 @@ public class controlador implements ActionListener{
         	
         
         timer.setRepeats(false);
-        timer.start();
 			
 		}
 	private void abrirVentanaInstrucciones() {
@@ -205,12 +199,7 @@ public class controlador implements ActionListener{
 		vis.setVisible(false);
 		vi.setVisible(true);
 	}
-	
-	private JButton createCardButton() {
 		
-			
-		return cardButton;
-	}
 	
 
 

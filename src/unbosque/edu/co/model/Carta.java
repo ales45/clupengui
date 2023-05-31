@@ -28,8 +28,9 @@ public class Carta {
 	public String getRutaCarta() {
 		return rutaCarta;
 	}
-	public void setRutaCarta(String rutaCarta) {
-		this.rutaCarta = rutaCarta;
+	public String getRutaCarta(String rutaCarta) {
+		return this.rutaCarta;
 	}
+
     
 }
