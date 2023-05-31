@@ -4,6 +4,7 @@ import unbosque.edu.co.view.VentanaInicio;
 import unbosque.edu.co.view.VentanaInstrucciones;
 import unbosque.edu.co.view.VentanaJuego;
 import unbosque.edu.co.model.Jugador;
+import unbosque.edu.co.model.sense;
 
 
 import java.awt.event.ActionEvent;
@@ -29,6 +30,8 @@ public class controlador implements ActionListener{
 	ArrayList cartas = new ArrayList();
 	private List<JButton> cardButtons;
 	private Random random;
+	public sense robo = new sense();
+	
 	
 	
 	
@@ -38,7 +41,7 @@ public class controlador implements ActionListener{
 	    pengi.inicializar(mazos);
 	    pengi.llenarmano();
 		vi = new VentanaInicio();
-		vj = new VentanaJuego(pengi.getMano());
+		vj = new VentanaJuego(pengi.mano);
 		vis = new VentanaInstrucciones();
 		agregarLectores();
 		cardButtons = new ArrayList<>();
@@ -55,22 +58,28 @@ public class controlador implements ActionListener{
 	}
 	
 	public void empezar(Carta carta,Carta sense) {
-		
+			
 			cartas = lg.cartas(carta,sense);
 			
 			//error se soluciona al pasara cartas	
+			if (cartas == null) {
+				System.out.println("empate");
+			}else {
 			if (cartas.get(1) == "jugador") {
 				System.out.println("jugado");
-				mazos.setmazoganador(ronda, (Carta) (cartas.get(0))); //aqui llamo a un metodo de otro archivo donde se esta gestionando que carta gana en cada ronda
+				mazos.setmazoganador((Carta) cartas.get(0)); //aqui llamo a un metodo de otro archivo donde se esta gestionando que carta gana en cada ronda
+				System.out.println(mazos.mazoganador.get(0).getelemento());
 			}else {
 				if (cartas.get(1) == "sense") {
 					System.out.println("sense");
-					mazos.setmazoganadorsen(ronda,(Carta) (cartas.get(0))); //aqui llamo a un metodo de otro archivo donde se esta gestionando que carta gana en cada ronda
+					mazos.setmazoganador((Carta) cartas.get(0)); //aqui llamo a un metodo de otro archivo donde se esta gestionando que carta gana en cada ronda
+					System.out.println(mazos.mazoganador.get(0));
 				}else {
+					
 					
 				}
 			}		
-			
+			}
 			
 		
 			
@@ -80,7 +89,7 @@ public class controlador implements ActionListener{
 				pengi.aumentarScore(5);
 				
 			}else {
-				if(gn.Ganar(mazos.getmazosense())) {
+				if(gn.Ganar(mazos.getmazoganadorsen())) {
 					System.out.println("gana sense");
 					pengi.quitarScore(2);
 				
@@ -90,7 +99,7 @@ public class controlador implements ActionListener{
 			}
 			
 			
-			
+		
 		}
 	
 	private void agregarLectores() {
@@ -149,19 +158,28 @@ public class controlador implements ActionListener{
 				 break;
 			 }
 			 case "btncarta1clik": {
-				 empezar(pengi.getMano().get(0), null);
+				 empezar(pengi.getMano().get(0),mazos.cartaramdon());
+				 pengi.llenarEspacion(0);
 				 break;
 			 }
 			 case "btncarta2clik": {
+				 empezar(pengi.getMano().get(1),mazos.cartaramdon());
+				 pengi.llenarEspacion(1);
 				 break;
 			 }
 			 case "btncarta3clik": {
+				 empezar(pengi.getMano().get(2),mazos.cartaramdon());	
+				 pengi.llenarEspacion(2);
 				 break;
 			 }
 			 case "btncarta4clik": {
+				 empezar(pengi.getMano().get(3),mazos.cartaramdon());
+				 pengi.llenarEspacion(3);
 				 break;
 			 }
 			 case "btncarta5clik": {
+				 empezar(pengi.getMano().get(4),mazos.cartaramdon());
+				 pengi.llenarEspacion(4);
 				 break;
 			 }
 			 default:

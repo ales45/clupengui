@@ -3,37 +3,42 @@ import unbosque.edu.co.model.Carta;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.lang.reflect.Array;
 import java.util.*;
+import java.util.Random;
 public class mazo {
-	//Carta[] mazo = new Carta[30];
-	Carta[] mazoganador = new Carta[30];
-	Carta[] mazoganadorsen = new Carta[30];
+	
+	public ArrayList<Carta> mazoganador = new ArrayList<Carta>();
+	public ArrayList<Carta> mazoganadorsen = new ArrayList<Carta>();
 	public List<Carta> cartas = new ArrayList<>();
-	//Carta[] mazopinguino = new Carta[5];
+	
 	
 
 
+	public Carta cartaramdon() {
+		Random rand = new Random();
+        return this.cartas.get(rand.nextInt(this.cartas.size()));
+	}
 	
-	
-	public void setmazoganador(int i,Carta carta) {
-		this.mazoganador[i] = carta; 
+	public void setmazoganador(Carta carta) {
+		mazoganador.add(carta); 
 	}
 	public Carta getmazoganador(int i) {
-		return this.mazoganador[i];
+		return mazoganador.get(i);
 	}
-	public Carta[] getmazoganador() {
+	public ArrayList getmazoganador() {
 		return this.mazoganador;
 	}
 
 	
 	
-	public void setmazoganadorsen(int i,Carta carta) {
-		this.mazoganador[i] = carta; 
+	public void setmazoganadorsen(Carta carta) {
+		mazoganadorsen.add(carta); 
 	}
 	public Carta getmazoganadorsen(int i) {
-		return this.mazoganador[i];
+		return mazoganadorsen.get(i);
 	}
-	public Carta[] getmazosense() {
+	public ArrayList getmazoganadorsen() {
 		return this.mazoganadorsen;
 	}
 	

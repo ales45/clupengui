@@ -18,6 +18,9 @@ public class logicaPartida {
 		
 		a.add(condivito(cartas));
 		//las posiciones se gestionan segun la carta que se retorne, si esta en x posicion esta varia
+		if (condivito(cartas) == null) {
+			return null;
+		}
 		if(condivito(cartas).getelemento() == cartas[0].getelemento()) {
 			a.add("jugador"); //aqui lo que hago es retornar una list cpn un string y un objeto
 		}else {

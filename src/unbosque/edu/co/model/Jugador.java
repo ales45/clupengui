@@ -2,11 +2,12 @@ package unbosque.edu.co.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Jugador {
     private String nombre;
     private List<Carta> mazo;
-    private List<Carta> mano;
+    public List<Carta> mano;
     private int score;
 
     public Jugador() {
@@ -47,6 +48,12 @@ public class Jugador {
     		mano.add(carta);
     	}
     	
+    }
+    
+    public void llenarEspacion(int i) {
+    	mano.remove(i);
+    	Carta carta = this.mazo.get((int)(Math.random()*29+1));
+    	mano.add(carta);
     }
     
     public List<Carta> getMano() {

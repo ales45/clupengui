@@ -7,22 +7,22 @@ import unbosque.edu.co.model.Carta;
 
 public class GanarPartida {
 	
-	public Boolean Ganar(Carta[] mazoganador) {
+	public Boolean Ganar(ArrayList<Carta> mazoganador) {
 		int Colore = 0;
 		ArrayList cartaF = new ArrayList<Carta>();
 		ArrayList cartaA = new ArrayList<Carta>();
 		ArrayList cartaH = new ArrayList<Carta>();
 		
 		
-		for (int i = 0;i<mazoganador.length;i++) {
-			if (mazoganador[i].getelemento() == "fuego") {
-				cartaF.add(mazoganador[i]);
+		for (int i = 0;i<mazoganador.size();i++) {
+			if (mazoganador.get(i).getelemento() == "fuego") {
+				cartaF.add(mazoganador.get(i));
 			}else {
-				if (mazoganador[i].getelemento() == "agua") {
-					cartaA.add(mazoganador[i]);
+				if (mazoganador.get(i).getelemento() == "agua") {
+					cartaA.add(mazoganador.get(i));
 				}else {
-					if (mazoganador[i].getelemento() == "hielo") {
-						cartaH.add(mazoganador[i]);
+					if (mazoganador.get(i).getelemento() == "hielo") {
+						cartaH.add(mazoganador.get(i));
 				    }
 		         }
 		    }
@@ -49,8 +49,11 @@ public class GanarPartida {
 	
 	public Boolean ganarxColor(ArrayList<Carta> cartas) {
 		int Diferente = 0;
+		if(cartas.isEmpty()) {
+			return false;
+		}
 		for (int i = 0; i<cartas.size();i++) {
-			for(int t = 0; t<cartas.size();i++) {
+			for(int t = 0; t<cartas.size();t++) {
 				if (i==t) {
 					continue;
 				}
@@ -74,8 +77,11 @@ public class GanarPartida {
 	}
 	
 	public Boolean ganarXdiferente(ArrayList<Carta> cartasf,ArrayList<Carta> cartasa,ArrayList<Carta> cartash) {
+		if (cartasa.isEmpty() || cartasf.isEmpty() || cartash.isEmpty()) {
+			return false;
+		}
 		for(int i = 0;i<cartasf.size();i++) {
-			for(int t = 0;i<cartasa.size();i++) {
+			for(int t = 0;i<cartasa.size();t++) {
 				if(cartasf.get(i).getcolor() != cartasa.get(t).getcolor()) {
 					for (int p = 0;p<cartash.size();p++) {
 						if(cartasa.get(t).getcolor() != cartash.get(p).getcolor()) {
