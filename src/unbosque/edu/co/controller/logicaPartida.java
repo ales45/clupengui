@@ -4,59 +4,32 @@ import unbosque.edu.co.model.Jugador;
 import java.util.*;
 
 public class logicaPartida {
-	public Carta cartas(){
-		Jugador ales = new Jugador();
+	public ArrayList cartas(Carta cartaJ,Carta cartaS){
+		
 		ArrayList a = new ArrayList();   
 
 		
 		Scanner sc = new Scanner(System.in);
 		Carta[] cartas = new Carta[2]; //lista para poder guardar las dos cartas que estan en juego
+				
+		cartas[0] = cartaJ;
+		cartas[1] = cartaS;
 		
-		Carta fuego = new Carta(10,"rojo","fuego","sexo");
-		Carta agua = new Carta(10, "azul", "agua","sexo2");
-		Carta hielo = new Carta(10, "blanco", "hielo","sexo3");
 		
-		
-		System.out.println("dame la carta #1");
-		char c1 = sc.next().charAt(0); 
-		
-		System.out.println("dame la carta #2");
-		char c2 = sc.next().charAt(0);
-		// variables para seleccionar cartas
-		if(c1 == 'f') { //
-			cartas[0] = fuego;
-		}else {
-			if(c1 == 'a') {
-				cartas[0] = agua;
-			}else {
-				if(c1=='h') {
-					cartas[0] = hielo;
-				}
-			}
-		}
-		
-		if(c2 == 'f') {
-			cartas[1] = fuego;
-		}else {
-			if(c2 == 'a') {
-				cartas[1] = agua;
-			}else {
-				if(c2=='h') {
-					cartas[1] = hielo;
-				}
-			}
-		}
 		a.add(condivito(cartas));
+		//las posiciones se gestionan segun la carta que se retorne, si esta en x posicion esta varia
 		if(condivito(cartas).getelemento() == cartas[0].getelemento()) {
-			a.add("jugador");
+			a.add("jugador"); //aqui lo que hago es retornar una list cpn un string y un objeto
 		}else {
-			if (condivito(cartas).getelemento() == cartas[1].getelemento());
-
+			if (condivito(cartas).getelemento() == cartas[1].getelemento()) {
+				a.add("sense");
+			}else {
+				return null;
+			}
 		}
-		
+		//si gana el sense se retorna sense y la carta que se va a guardar en la lista del sensei y viseversa si gana el jugador
 		cartas[0] = condivito(cartas);
-		System.out.println(cartas[0].getelemento());
-		return cartas[0];
+		return a;
 	}
 	
 	
